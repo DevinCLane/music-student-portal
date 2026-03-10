@@ -8,6 +8,7 @@ An application for music teachers to create and share lesson plans with their st
 - **Teacher Dashboard**: A teacher can see all students in their roster, clicking through to see that student's lessons.
 - **Student Management**: A teacher can add and remove students from their roster.
 - **Lesson Planning**: A teacher can create lesson plans with the date, content, and learning objectives.
+- **Student view**: A student can log in and view all of their lessons from their teacher.
 
 ## 🛠️ Tech Stack
 
