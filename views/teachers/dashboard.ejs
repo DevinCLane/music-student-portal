@@ -1,26 +1,21 @@
 <%- include('../partials/header-teacher') -%>
 <div class="container">
-    <div class="row mt-5">
-        <div class="col-6">
-            <div>
-                <p><strong>Name</strong>: <%= teacher.name %></p>
-                <p><strong>Email</strong>: <%= teacher.email %></p>
-                <a href="/teachers/logout" class="col-3 btn btn-primary">Logout</a>
-            </div>
-        </div>
-        <div class="col-6">
-            <a href="/teachers/students/new" class="col-3 btn btn-primary">Add a student</a>
-        </div>
-        <div class="row justify-content-center mt-5">
-         <ul class="row list-unstyled">
-        <% for(var i=0; i<students.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-            <a href="/teachers/students/<%= students[i]._id%>"><%= students[i].name %></a>
-          </li>
-        <% } %>
-        </ul>
-        </div>
+    <div>
+        <p><strong>Name</strong>: <%= teacher.name %></p>
+        <p><strong>Email</strong>: <%= teacher.email %></p>
+        <a href="/teachers/logout" class="btn">Logout</a>
     </div>
-    <!-- todo: form to add new students -->
+    <div>
+        <a href="/teachers/students/new" class="btn">Add a student</a>
+    </div>
+    <div>
+     <ul>
+    <% for(var i=0; i<students.length; i++) {%>
+      <li>
+        <a href="/teachers/students/<%= students[i]._id%>"><%= students[i].name %></a>
+      </li>
+    <% } %>
+    </ul>
+    </div>
     <%- include('../partials/footer') -%>
 </div>

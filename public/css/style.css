@@ -1,7 +1,7 @@
 @import "reset.css";
 
 :root {
-    --text: #36303e;
+    --text: #000000;
     --text-h: #08060d;
     --bg: #fff;
     --border: #e5e4e7;
@@ -14,6 +14,8 @@
         rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
     --sans: system-ui, "Segoe UI", Roboto, sans-serif;
+    --sans2:
+        "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --heading: system-ui, "Segoe UI", Roboto, sans-serif;
     --mono: ui-monospace, Consolas, monospace;
 
@@ -42,7 +44,7 @@ h2 {
 h1 {
     /* font-size: 56px; */
     letter-spacing: -1px;
-    margin: 0.67em 0;
+    margin: 0.5em 0;
     @media (max-width: 1024px) {
         font-size: 36px;
         margin: 20px 0;
@@ -78,16 +80,25 @@ a:hover {
     display: flex;
     flex-direction: column;
     text-align: center;
+    justify-items: center;
     margin-bottom: 1rem;
+    gap: 1.5rem;
 }
 
 .btn {
-    padding: 0.75rem 1.5rem;
-    border: 2px solid black;
-    background-color: aliceblue;
+    padding: 0.625rem 1rem;
+    margin: 0.5rem;
+    border-radius: 8px;
+    border-style: none;
+    background-color: #08c9c2;
     border-radius: 0.2rem;
+    transition: background-color 450ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }
 
-.btn:hover {
-    background-color: aqua;
+.btn:hover,
+.btn:focus {
+    background-color: #93ffe7;
 }
