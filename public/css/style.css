@@ -101,6 +101,11 @@ a:hover {
     flex-direction: column;
 }
 
+.dashboard-heading {
+    display: flex;
+    flex-direction: column;
+}
+
 .lessons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
