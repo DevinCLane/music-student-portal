@@ -1,24 +1,21 @@
 <%- include('../partials/header-student') -%>
 <div class="container">
-  <div class="row mt-5">
-      <div class="col-6">
-          <div>
-              <p><strong>Your Teacher</strong>: <%= teacher.name %></p>
-              <a href="/students/logout" class="col-3 btn btn-primary">Logout</a>
-          </div>
+  <div class="sub-container">
+    <div class="your-teacher">
+      <p><strong>Your Teacher</strong>: <%= teacher.name %></p>
+      <a href="/students/logout" class="col-3 btn btn-primary">Logout</a>
+    </div>
     <div class="row justify-content-center mt-5">
-      <!-- show the student's name -->
        <h1><%= student.name %></h1>
-        <!-- lesson plans -->
-      <ul class="row list-unstyled">
-        <h2>Your Lessons</h2>
+       <h2>Your Lessons</h2>
+      <ul class="lessons">
         <% for(var i=0; i<lessons.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-            <!-- todo: add correct link for individual lesson view -->
+          <li>
             <a href="/students/<%= student._id%>/lessons/<%= lessons[i]._id %>"><%= lessons[i].formattedDate %></a>
           </li>
         <% } %>
       </ul>
+    </div>
   </div>  
 </div>
 <%- include('../partials/footer') -%>

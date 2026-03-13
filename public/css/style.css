@@ -96,6 +96,19 @@ a:hover {
     gap: 1rem;
 }
 
+.your-teacher {
+    display: flex;
+    flex-direction: column;
+}
+
+.lessons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1rem auto;
+    max-width: 40rem;
+}
+
 .btn {
     padding: 0.625rem 1rem;
     margin: 0.5rem;

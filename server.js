@@ -48,7 +48,7 @@ app.use(
         resave: false,
         saveUninitialized: false,
         store: new MongoStore({ mongooseConnection: mongoose.connection }),
-    })
+    }),
 );
 
 // Passport middleware
@@ -71,7 +71,5 @@ app.use("/students", studentRoutes);
 
 //Server Running
 app.listen(PORT, HOSTNAME, () => {
-    console.log(
-        `Server is running on http://${HOSTNAME}:${PORT}, you better catch it!`
-    );
+    console.log(`Server is running on http://${HOSTNAME}:${PORT}`);
 });
