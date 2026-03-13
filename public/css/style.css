@@ -104,7 +104,7 @@ a:hover {
 .lessons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 1.5rem;
     margin: 1rem auto;
     max-width: 40rem;
 }
@@ -112,7 +112,7 @@ a:hover {
 .btn {
     padding: 0.625rem 1rem;
     margin: 0.5rem;
-    border-radius: 8px;
+    border-radius: 0.625rem;
     border-style: none;
     background-color: #08c9c2;
     border-radius: 0.2rem;
@@ -124,5 +124,15 @@ a:hover {
 
 .btn:hover,
 .btn:focus {
+    background-color: #93ffe7;
+}
+
+.card {
+    padding: 1.25rem 2rem;
+}
+.card:hover,
+.card:focus {
+    border: 0.2rem solid #000000;
+    border-radius: 0.625rem;
     background-color: #93ffe7;
 }
