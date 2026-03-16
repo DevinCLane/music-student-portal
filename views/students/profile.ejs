@@ -3,21 +3,19 @@
   <div class="sub-container">
     <div class="profile-heading">
       <p><strong>Your Teacher</strong>: <%= teacher.name %></p>
-      <div>
-        <a href="/students/logout" class="col-3 btn btn-primary">Logout</a>
-      </div>
+      <a href="/students/logout" class="col-3 btn btn-primary">Logout</a>
     </div>
+  </div>
     <div class="row justify-content-center mt-5">
-       <h1><%= student.name %></h1>
-       <h2>Your Lessons</h2>
+      <h1><%= student.name %></h1>
+      <h2>Your Lessons</h2>
       <ul class="lessons">
         <% for(var i=0; i<lessons.length; i++) {%>
           <li>
             <a href="/students/<%= student._id%>/lessons/<%= lessons[i]._id %>"><%= lessons[i].formattedDate %></a>
           </li>
-        <% } %>
-      </ul>
-    </div>
-  </div>  
+          <% } %>
+        </ul>
+      </div>
 </div>
 <%- include('../partials/footer') -%>
