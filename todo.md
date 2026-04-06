@@ -109,3 +109,8 @@ next steps:
 - css: align the login inputs better
 - css: background color?
 - css: better font?
+
+2026-04-06
+
+- teachers sign up CSS broken
+- make signup forms longer
