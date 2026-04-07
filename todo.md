@@ -114,3 +114,9 @@ next steps:
 
 - teachers sign up CSS broken
 - make signup forms longer
+- fix css for add a student form
+- make buttons not underlined upon hover
+
+- delete student functionality
+- improve the formatting of text for lessons: don't collapse lines, allow links
+- add forgot password functionality

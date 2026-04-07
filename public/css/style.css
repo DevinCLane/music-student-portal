@@ -65,9 +65,9 @@ a {
     color: inherit;
 }
 
-a:hover {
+/* a:hover {
     text-decoration: underline;
-}
+} */
 
 .heading {
     font-size: 4rem;
@@ -191,5 +191,15 @@ a:hover {
 
 .btn:hover,
 .btn:focus {
+    background-color: #93ffe7;
+}
+
+.btn-home {
+    padding: 1rem 2rem;
+    background-color: #fff;
+}
+
+.btn-home:hover,
+.btn-home:focus {
     background-color: #93ffe7;
 }
