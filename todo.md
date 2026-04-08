@@ -120,3 +120,10 @@ next steps:
 - delete student functionality
 - improve the formatting of text for lessons: don't collapse lines, allow links
 - add forgot password functionality
+
+2026-04-08
+
+- adding the markdown editor:
+- where do i put the javascript to load the editor? in the controller?
+- when i submit the form, how do i ensure that the controller has the data from the textarea?
+- do i need to change the data structure of the lesson?
