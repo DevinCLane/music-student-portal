@@ -16,11 +16,11 @@
             action="/teachers/students/<%= student._id%>/lessons"
             method="POST"
         >
-            <div class="form-label-group">
+            <div class="form-label-group new-lesson">
                 <label for="date" class="form-label">Date</label>
                 <input type="date" class="form-control" id="date" name="date" />
             </div>
-            <div class="form-label-group">
+            <div class="form-label-group new-lesson">
                 <label for="text-area" class="form-label">Lesson</label>
                 <textarea
                     class="form-control"
@@ -34,8 +34,8 @@
             </button>
         </form>
     </div>
-    <div class="col-6">
-        <div class="row justify-content-center mt-5 gap-4">
+    <div>
+        <div>
             <a
                 class="btn btn-primary"
                 href="/teachers/students/<%= student.id %>"
@@ -50,5 +50,9 @@
 <script>
     // set the default value of the date input to today's date
     document.getElementById("date").valueAsDate = new Date();
+    const easymde = new EasyMDE({
+        element: document.getElementById("text-area"),
+        maxHeight: "350px",
+    });
 </script>
 <%- include('../../partials/footer') -%>
