@@ -149,6 +149,23 @@ a {
     align-items: center;
 }
 
+.show-lesson {
+    width: 18rem;
+    @media (width >= 960px) {
+        width: 40rem;
+    }
+}
+
+.show-lesson a {
+    text-decoration: underline;
+}
+
+.show-lesson a:hover,
+.show-lesson a:focus {
+    text-decoration: none;
+    background-color: #93ffe7;
+}
+
 .profile-heading {
     display: flex;
     flex-direction: column;

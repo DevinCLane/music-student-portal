@@ -12,27 +12,29 @@
             >Return to Dashboard</a
             >
         </div>
-        <div class="container">
-            <div class="lesson-heading">
-            <h2><%= lesson.formattedDate %></h2>
-            <%if(lesson.teacher == teacher.id){ %>
-                <form
-                action="/teachers/students/<%= student.id %>/lessons/<%= lesson.id %>?_method=DELETE"
-                method="POST"
-                class="col-3"
-                >
-                <button
-                class="btn btn-primary fa fa-trash"
-                type="submit"
-                ></button>
-            </form>
-            <%}%>
-        </div> 
-        <!-- 
-            <img class="img-fluid" src="<%= lesson.image%>" />
-         -->
-            <div><%- lesson.content %></div>
-
+        <div class="sub-container">
+            <div>
+                <h2><%= lesson.formattedDate %></h2>
+                <%if(lesson.teacher == teacher.id){ %>
+                    <form
+                    action="/teachers/students/<%= student.id %>/lessons/<%= lesson.id %>?_method=DELETE"
+                    method="POST"
+                    class="col-3"
+                    >
+                    <button
+                    class="btn btn-primary fa fa-trash"
+                    type="submit"
+                    ></button>
+                </form>
+                <%}%>
+            </div> 
+            <!-- 
+                <img class="img-fluid" src="<%= lesson.image%>" />
+                -->
+                <div class="show-lesson">
+                    <%- lesson.content %>
+                </div>
+            </div>
 </div>
 
 <%- include('../../partials/footer') -%>
