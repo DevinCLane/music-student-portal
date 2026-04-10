@@ -64,12 +64,15 @@ module.exports = {
         try {
             const lesson = await Lesson.findById(req.params.lessonId);
             formatDate(lesson);
+            // parse the markdown into html and sanitize this
+            // this could be done on the way into the database, but then all the prior...
+            // ...lessons won't be properly parsed. seems fine?
             const parsed = dompurify.sanitize(marked.parse(lesson.content));
-            const lessonParsed = { ...lesson, content: parsed };
+            await lesson.updateOne({ content: parsed });
             const teacher = await Teacher.findById(req.user.id);
             const student = await Student.findById(req.params.studentId);
             res.render("teachers/lessons/show", {
-                lesson: lessonParsed,
+                lesson: lesson,
                 teacher: teacher,
                 student: student,
             });
