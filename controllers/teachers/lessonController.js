@@ -3,6 +3,8 @@ const Student = require("../../models/Student");
 const Teacher = require("../../models/Teacher");
 const formatDate = require("../../utils/formatDate");
 const cloudinary = require("../../middleware/cloudinary");
+const marked = require("marked");
+const dompurify = require("isomorphic-dompurify");
 
 module.exports = {
     getNewLessonForm: async (req, res) => {
@@ -49,7 +51,7 @@ module.exports = {
             await Student.findByIdAndUpdate(
                 req.params.studentId,
                 { $push: { lessons: lesson._id } },
-                { new: true }
+                { new: true },
             );
 
             res.redirect(`/teachers/students/${req.params.studentId}`);
@@ -62,10 +64,12 @@ module.exports = {
         try {
             const lesson = await Lesson.findById(req.params.lessonId);
             formatDate(lesson);
+            const parsed = dompurify.sanitize(marked.parse(lesson.content));
+            const lessonParsed = { ...lesson, content: parsed };
             const teacher = await Teacher.findById(req.user.id);
             const student = await Student.findById(req.params.studentId);
             res.render("teachers/lessons/show", {
-                lesson: lesson,
+                lesson: lessonParsed,
                 teacher: teacher,
                 student: student,
             });
@@ -87,7 +91,7 @@ module.exports = {
             res.redirect(`/teachers/students/${req.params.studentId}`);
         } catch (err) {
             res.redirect(
-                `/teachers/students/${req.params.studentId}/lessons/${req.params.lessonId}`
+                `/teachers/students/${req.params.studentId}/lessons/${req.params.lessonId}`,
             );
         }
     },

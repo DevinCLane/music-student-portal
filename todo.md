@@ -127,3 +127,8 @@ next steps:
 - where do i put the javascript to load the editor? in the controller?
 - when i submit the form, how do i ensure that the controller has the data from the textarea?
 - do i need to change the data structure of the lesson?
+
+2026-04-09
+
+- i am saving my lessons as markdown strings down, the editor is working
+- now i need to render that markdown into html markup instead of just rendering a string
