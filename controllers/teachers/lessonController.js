@@ -39,9 +39,14 @@ module.exports = {
                 imageData = await cloudinary.uploader.upload(req.file.path);
             }
 
+            // parse the markdown into html and sanitize
+            const parsedContent = dompurify.sanitize(
+                marked.parse(req.body.content),
+            );
+
             const lesson = await Lesson.create({
                 date: req.body.date,
-                content: req.body.content,
+                content: parsedContent,
                 image: imageData.secure_url || null,
                 cloudinaryId: imageData.public_id || null,
                 teacher: req.user.id,
@@ -64,11 +69,6 @@ module.exports = {
         try {
             const lesson = await Lesson.findById(req.params.lessonId);
             formatDate(lesson);
-            // parse the markdown into html and sanitize this
-            // this could be done on the way into the database, but then all the prior...
-            // ...lessons won't be properly parsed. seems fine?
-            const parsed = dompurify.sanitize(marked.parse(lesson.content));
-            await lesson.updateOne({ content: parsed });
             const teacher = await Teacher.findById(req.user.id);
             const student = await Student.findById(req.params.studentId);
             res.render("teachers/lessons/show", {
