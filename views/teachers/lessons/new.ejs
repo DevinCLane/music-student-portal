@@ -5,6 +5,14 @@
             <p><strong>Name</strong>: <%= teacher.name %></p>
             <p><strong>Email</strong>: <%= teacher.email %></p>
             <a href="/logout" class="btn">Logout</a>
+            <a
+                class="btn btn-primary"
+                href="/teachers/students/<%= student.id %>"
+                >Return to Student</a
+            >
+            <a class="btn btn-primary" href="/teachers/dashboard"
+                >Return to Dashboard</a
+            >
         </div>
     </div>
     <div>
@@ -37,18 +45,6 @@
                 Submit
             </button>
         </form>
-    </div>
-    <div>
-        <div>
-            <a
-                class="btn btn-primary"
-                href="/teachers/students/<%= student.id %>"
-                >Return to Student</a
-            >
-            <a class="btn btn-primary" href="/teachers/dashboard"
-                >Return to Dashboard</a
-            >
-        </div>
     </div>
 </div>
 <script>
