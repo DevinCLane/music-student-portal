@@ -65,7 +65,7 @@ a {
     color: inherit;
 }
 
-.heading {
+.heading-site {
     font-size: 4rem;
 }
 .subheading {
@@ -105,10 +105,20 @@ a {
     flex-direction: column;
     align-items: start;
     width: 18rem;
+    gap: 0.25rem;
     @media (width >= 960px) {
         width: 25rem;
     }
-    gap: 0.25rem;
+}
+
+.new-lesson {
+    display: block;
+    text-align: left;
+    padding: 0.5rem;
+    width: 18rem;
+    @media (width >= 960px) {
+        width: 40rem;
+    }
 }
 
 .form-control {
@@ -137,6 +147,23 @@ a {
     display: flex;
     margin: 1rem auto;
     align-items: center;
+}
+
+.show-lesson {
+    width: 18rem;
+    @media (width >= 960px) {
+        width: 40rem;
+    }
+}
+
+.show-lesson a {
+    text-decoration: underline;
+}
+
+.show-lesson a:hover,
+.show-lesson a:focus {
+    text-decoration: none;
+    background-color: #93ffe7;
 }
 
 .profile-heading {

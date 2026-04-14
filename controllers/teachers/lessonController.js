@@ -3,6 +3,8 @@ const Student = require("../../models/Student");
 const Teacher = require("../../models/Teacher");
 const formatDate = require("../../utils/formatDate");
 const cloudinary = require("../../middleware/cloudinary");
+const marked = require("marked");
+const dompurify = require("isomorphic-dompurify");
 
 module.exports = {
     getNewLessonForm: async (req, res) => {
@@ -37,9 +39,14 @@ module.exports = {
                 imageData = await cloudinary.uploader.upload(req.file.path);
             }
 
+            // parse the markdown into html and sanitize
+            const parsedContent = dompurify.sanitize(
+                marked.parse(req.body.content),
+            );
+
             const lesson = await Lesson.create({
                 date: req.body.date,
-                content: req.body.content,
+                content: parsedContent,
                 image: imageData.secure_url || null,
                 cloudinaryId: imageData.public_id || null,
                 teacher: req.user.id,
@@ -49,7 +56,7 @@ module.exports = {
             await Student.findByIdAndUpdate(
                 req.params.studentId,
                 { $push: { lessons: lesson._id } },
-                { new: true }
+                { new: true },
             );
 
             res.redirect(`/teachers/students/${req.params.studentId}`);
@@ -87,7 +94,7 @@ module.exports = {
             res.redirect(`/teachers/students/${req.params.studentId}`);
         } catch (err) {
             res.redirect(
-                `/teachers/students/${req.params.studentId}/lessons/${req.params.lessonId}`
+                `/teachers/students/${req.params.studentId}/lessons/${req.params.lessonId}`,
             );
         }
     },

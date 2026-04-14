@@ -1,50 +1,10 @@
 <%- include('../../partials/header-teacher') -%>
 <div class="container">
-    <div class="row mt-5">
-        <div class="col-6">
-            <div>
-                <p><strong>Name</strong>: <%= teacher.name %></p>
-                <p><strong>Email</strong>: <%= teacher.email %></p>
-                <a href="/logout" class="col-3 btn btn-primary">Logout</a>
-            </div>
-        </div>
-        <div class="col-6">
-            <div>
-                <p><strong>Student</strong>: <%= student.name %></p>
-            </div>
-        </div>
-        <div class="mt-5">
-            <h2>Add a lesson</h2>
-            <form
-                action="/teachers/students/<%= student._id%>/lessons"
-                method="POST"
-            >
-                <div class="mb-3">
-                    <label for="date" class="form-label">Date</label>
-                    <input
-                        type="date"
-                        class="form-control"
-                        id="date"
-                        name="date"
-                    />
-                </div>
-                <div class="mb-3">
-                    <label for="text-area" class="form-label">Lesson</label>
-                    <textarea
-                        class="form-control"
-                        id="text-area"
-                        rows="10"
-                        name="content"
-                    ></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" value="Upload">
-                    Submit
-                </button>
-            </form>
-        </div>
-    </div>
-    <div class="col-6">
-        <div class="row justify-content-center mt-5 gap-4">
+    <div class="sub-container">
+        <div class="dashboard-heading">
+            <p><strong>Name</strong>: <%= teacher.name %></p>
+            <p><strong>Email</strong>: <%= teacher.email %></p>
+            <a href="/logout" class="btn">Logout</a>
             <a
                 class="btn btn-primary"
                 href="/teachers/students/<%= student.id %>"
@@ -55,5 +15,44 @@
             >
         </div>
     </div>
+    <div>
+        <p><strong>Student</strong>: <%= student.name %></p>
+    </div>
+    <div class="sub-container">
+        <h2>Add a lesson</h2>
+        <form
+            action="/teachers/students/<%= student._id%>/lessons"
+            method="POST"
+        >
+            <div class="form-label-group new-lesson">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" class="form-control" id="date" name="date" />
+            </div>
+            <div class="form-label-group new-lesson">
+                <label for="text-area" class="form-label">Lesson</label>
+                <textarea
+                    class="form-control"
+                    id="text-area"
+                    rows="10"
+                    name="content"
+                ></textarea>
+                <small
+                    >note: all links in lesson plans must start with
+                    `https://`</small
+                >
+            </div>
+            <button type="submit" class="btn btn-primary" value="Upload">
+                Submit
+            </button>
+        </form>
+    </div>
 </div>
+<script>
+    // set the default value of the date input to today's date
+    document.getElementById("date").valueAsDate = new Date();
+    const easymde = new EasyMDE({
+        element: document.getElementById("text-area"),
+        maxHeight: "350px",
+    });
+</script>
 <%- include('../../partials/footer') -%>

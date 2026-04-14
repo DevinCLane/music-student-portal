@@ -31,8 +31,6 @@ module.exports = {
     getNewStudentForm: async (req, res) => {
         try {
             const teacher = await Teacher.findById({ _id: req.user.id });
-            console.log("Teacher Query:", { _id: req.user.id }); // Debugging log
-            console.log("Teacher:", teacher); // Debugging log
 
             if (!teacher) {
                 req.logout(() => {
@@ -69,7 +67,7 @@ module.exports = {
             await Teacher.findByIdAndUpdate(
                 req.user.id,
                 { $push: { students: student._id } },
-                { new: true }
+                { new: true },
             );
 
             res.redirect("/teachers/dashboard");
