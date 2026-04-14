@@ -3,7 +3,9 @@ const Student = require("../../models/Student");
 const Teacher = require("../../models/Teacher");
 const formatDate = require("../../utils/formatDate");
 const cloudinary = require("../../middleware/cloudinary");
-const marked = require("marked");
+(async function () {
+    const { marked } = await import("marked");
+})();
 const dompurify = require("isomorphic-dompurify");
 
 module.exports = {
