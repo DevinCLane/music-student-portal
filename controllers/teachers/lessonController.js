@@ -3,10 +3,17 @@ const Student = require("../../models/Student");
 const Teacher = require("../../models/Teacher");
 const formatDate = require("../../utils/formatDate");
 const cloudinary = require("../../middleware/cloudinary");
-(async function () {
-    const { marked } = await import("marked");
-})();
+
 const dompurify = require("isomorphic-dompurify");
+
+let markedLib;
+async function getMarked() {
+    if (!markedLib) {
+        const mod = await import("marked");
+        markedLib = mod.marked;
+    }
+    return markedLib;
+}
 
 module.exports = {
     getNewLessonForm: async (req, res) => {
@@ -41,6 +48,7 @@ module.exports = {
                 imageData = await cloudinary.uploader.upload(req.file.path);
             }
 
+            const marked = await getMarked();
             // parse the markdown into html and sanitize
             const parsedContent = dompurify.sanitize(
                 marked.parse(req.body.content),
