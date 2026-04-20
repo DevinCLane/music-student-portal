@@ -160,6 +160,10 @@ a {
     text-decoration: underline;
 }
 
+.show-lesson ul {
+    list-style: disc inside;
+}
+
 .show-lesson a:hover,
 .show-lesson a:focus {
     text-decoration: none;
