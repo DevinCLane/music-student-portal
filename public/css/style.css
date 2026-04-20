@@ -150,6 +150,7 @@ a {
 }
 
 .show-lesson {
+    overflow-wrap: break-word;
     width: 18rem;
     @media (width >= 960px) {
         width: 40rem;
