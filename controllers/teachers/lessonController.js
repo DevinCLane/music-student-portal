@@ -5,6 +5,7 @@ const formatDate = require("../../utils/formatDate");
 const cloudinary = require("../../middleware/cloudinary");
 
 const dompurify = require("isomorphic-dompurify");
+const markedLinkifyIt = require("marked-linkify-it");
 
 let markedLib;
 async function getMarked() {
@@ -49,6 +50,10 @@ module.exports = {
             }
 
             const marked = await getMarked();
+            const schemas = {};
+            const options = {};
+            marked.use(markedLinkifyIt(schemas, options));
+
             // parse the markdown into html and sanitize
             const parsedContent = dompurify.sanitize(
                 marked.parse(req.body.content),

@@ -24,6 +24,7 @@
         "express-session": "^1.17.1",
         "isomorphic-dompurify": "^3.8.0",
         "marked": "^18.0.0",
+        "marked-linkify-it": "^3.1.15",
         "method-override": "^3.0.0",
         "mongodb": "^3.6.5",
         "mongoose": "^5.12.3",
