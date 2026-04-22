@@ -7,8 +7,6 @@ const {
     ensureNeedsPassword,
 } = require("../middleware/auth");
 
-// // todo: dashboard view for a student
-// // todo: individual lesson view for a student
 // // todo: delete lesson plan for a student
 // // todo: add comment for a student
 
@@ -27,13 +25,13 @@ router.get(
     "/setup-password",
     ensureStudentAuth,
     ensureNeedsPassword,
-    studentController.setupPassword
+    studentController.setupPassword,
 );
 router.post(
     "/setup-password",
     ensureStudentAuth,
     ensureNeedsPassword,
-    studentController.savePassword
+    studentController.savePassword,
 );
 
 // student dashboard
@@ -43,7 +41,7 @@ router.get("/profile", ensureStudentAuth, studentController.getProfile);
 router.get(
     "/:studentId/lessons/:lessonId",
     ensureStudentAuth,
-    studentLessonController.getLesson
+    studentLessonController.getLesson,
 );
 // // router.post("/:lessonId/comment", ensureAuth, studentController.addComment);
 
