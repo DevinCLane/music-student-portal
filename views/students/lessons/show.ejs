@@ -5,11 +5,11 @@
             >Return to profile</a
         >
     </div>
-    <div>
+    <div class="sub-container">
         <h2><%= lesson.formattedDate %></h2>
         <!-- <img class="img-fluid" src="<%= lesson.image%>" /> -->
+        <div class="show-lesson"><%- lesson.content %></div>
     </div>
-    <div><%= lesson.content %></div>
 </div>
 
 <%- include('../../partials/footer') -%>
